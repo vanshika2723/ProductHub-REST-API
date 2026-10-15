@@ -1,4 +1,4 @@
-
+const cors = require("cors");
 require("dotenv").config();
 
 const express = require("express");
@@ -7,6 +7,15 @@ const productRoutes = require("./routes/productRoutes");
 const errorMiddleware = require("./middleware/errorMiddleware");
 
 const app = express();
+
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.use(express.json());
 
 app.use(express.json({ limit: "10kb" }));
 
