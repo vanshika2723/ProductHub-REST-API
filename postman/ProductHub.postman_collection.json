@@ -1,0 +1,99 @@
+
+{
+  "info": {
+    "name": "ProductHub REST API",
+    "description": "CRUD API for managing products using Node.js, Express and MongoDB.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "productId",
+      "value": "REPLACE_WITH_PRODUCT_ID"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/"
+      }
+    },
+    {
+      "name": "Get All Products",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/products"
+      }
+    },
+    {
+      "name": "Get Single Product",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/products/{{productId}}"
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"description\": \"Ergonomic wireless mouse\",\n  \"price\": 799,\n  \"category\": \"Electronics\",\n  \"stock\": 25\n}"
+        },
+        "url": "{{baseUrl}}/api/products"
+      }
+    },
+    {
+      "name": "Update Product (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Wireless Mouse Pro\",\n  \"description\": \"Updated wireless mouse\",\n  \"price\": 999,\n  \"category\": \"Electronics\",\n  \"stock\": 30\n}"
+        },
+        "url": "{{baseUrl}}/api/products/{{productId}}"
+      }
+    },
+    {
+      "name": "Update Product (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 699\n}"
+        },
+        "url": "{{baseUrl}}/api/products/{{productId}}"
+      }
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/products/{{productId}}"
+      }
+    }
+  ]
+}
