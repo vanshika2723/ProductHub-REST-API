@@ -110,6 +110,4 @@ The API handles schema validation errors, invalid MongoDB ObjectIds, missing res
 - Automated unit and integration tests
 - API deployment and monitoring
 
-## Author
 
-Add your name and GitHub profile here before submission.
